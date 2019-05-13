@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/gdl002-burger-queen/static/css/main.2cce8147.chunk.css",
-    "main.js": "/gdl002-burger-queen/static/js/main.9bfb14fe.chunk.js",
-    "main.js.map": "/gdl002-burger-queen/static/js/main.9bfb14fe.chunk.js.map",
-    "runtime~main.js": "/gdl002-burger-queen/static/js/runtime~main.e107886b.js",
-    "runtime~main.js.map": "/gdl002-burger-queen/static/js/runtime~main.e107886b.js.map",
-    "static/js/2.b41502e9.chunk.js": "/gdl002-burger-queen/static/js/2.b41502e9.chunk.js",
-    "static/js/2.b41502e9.chunk.js.map": "/gdl002-burger-queen/static/js/2.b41502e9.chunk.js.map",
-    "index.html": "/gdl002-burger-queen/index.html",
-    "precache-manifest.d169eddd24d0423e2a19526e72b3bb43.js": "/gdl002-burger-queen/precache-manifest.d169eddd24d0423e2a19526e72b3bb43.js",
-    "service-worker.js": "/gdl002-burger-queen/service-worker.js",
-    "static/css/main.2cce8147.chunk.css.map": "/gdl002-burger-queen/static/css/main.2cce8147.chunk.css.map",
-    "static/media/logo.svg": "/gdl002-burger-queen/static/media/logo.5d5d9eef.svg"
+    "main.css": "/MarinaEstefania/gdl002-burger-queen/static/css/main.2cce8147.chunk.css",
+    "main.js": "/MarinaEstefania/gdl002-burger-queen/static/js/main.0ab398d5.chunk.js",
+    "main.js.map": "/MarinaEstefania/gdl002-burger-queen/static/js/main.0ab398d5.chunk.js.map",
+    "runtime~main.js": "/MarinaEstefania/gdl002-burger-queen/static/js/runtime~main.e46051fb.js",
+    "runtime~main.js.map": "/MarinaEstefania/gdl002-burger-queen/static/js/runtime~main.e46051fb.js.map",
+    "static/js/2.b41502e9.chunk.js": "/MarinaEstefania/gdl002-burger-queen/static/js/2.b41502e9.chunk.js",
+    "static/js/2.b41502e9.chunk.js.map": "/MarinaEstefania/gdl002-burger-queen/static/js/2.b41502e9.chunk.js.map",
+    "index.html": "/MarinaEstefania/gdl002-burger-queen/index.html",
+    "precache-manifest.0fb36759a4bf30649707a97e76d6b332.js": "/MarinaEstefania/gdl002-burger-queen/precache-manifest.0fb36759a4bf30649707a97e76d6b332.js",
+    "service-worker.js": "/MarinaEstefania/gdl002-burger-queen/service-worker.js",
+    "static/css/main.2cce8147.chunk.css.map": "/MarinaEstefania/gdl002-burger-queen/static/css/main.2cce8147.chunk.css.map",
+    "static/media/logo.svg": "/MarinaEstefania/gdl002-burger-queen/static/media/logo.5d5d9eef.svg"
   }
 }
