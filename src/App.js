@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{Component} from 'react';
 import './App.css';
+import Navigation from './components/Navbar'
+import ButtonFood from './components/ButtonFood'
 
-function App() {
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navigation title="Desayuno" />
+      <section className='orderSection'>
+        <section className='food-optionSection'>
+          <ButtonFood className='btn-info ' title="Café Americano" />
+          <ButtonFood className='btn-info ' title="Café con Leche" />
+          <ButtonFood className='btn-info ' title="Jugo de frutas natural" />
+          <ButtonFood className='btn-primary ' title="Sandwich de jamón y queso" />
+        </section>
+        <section>
+          segunda seccion
+        </section>
+      </section>
     </div>
-  );
+  )
 }
 
 export default App;
