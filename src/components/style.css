@@ -1,4 +1,10 @@
 .button-food{
   
     margin: 1vw;
+    height: 16vw;
+    width: 16vw;
+  }
+
+  .imgItem{
+    width: 10vw;
   }

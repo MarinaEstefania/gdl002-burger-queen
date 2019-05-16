@@ -1,23 +1,25 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/Navbar'
 import ButtonFood from './components/ButtonFood'
-
-
+import Order from './components/Order'
+import { morningMenu } from './morningMenu.json';
 
 const App = () => {
   return (
     <div>
       <Navigation title="Desayuno" />
-      <section className='orderSection'>
+      <section className='optionsSection'>
         <section className='food-optionSection'>
-          <ButtonFood className='btn-info ' title="Café Americano" />
-          <ButtonFood className='btn-info ' title="Café con Leche" />
-          <ButtonFood className='btn-info ' title="Jugo de frutas natural" />
-          <ButtonFood className='btn-primary ' title="Sandwich de jamón y queso" />
+          <ButtonFood className='btn-info' alt={morningMenu.item} />
         </section>
-        <section>
-          segunda seccion
+        <section className='order-section'>
+          <ul className="list-group">
+            <li className="list-group-item">
+              <Order/>
+              <Order/>
+            </li>
+          </ul>
         </section>
       </section>
     </div>
