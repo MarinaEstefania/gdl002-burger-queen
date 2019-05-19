@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import firebase from 'firebase';
 import {database} from './Firebase/firebase';
 
-class Order extends Component{
+class Pruebasfirebase extends Component{
     constructor (){
         super()
         const dbRef = database.ref();
         const speedRef = dbRef.child('speed');
         console.log(speedRef)
         this.state = {
-            speed: 1000
+            speed: 'prueba firbease'
         }
     }
 /*       componentDidMount(){
@@ -29,4 +29,4 @@ class Order extends Component{
     }
 }
 
-export default Order;
+export default Pruebasfirebase;
