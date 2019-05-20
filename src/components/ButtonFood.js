@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import './style.css'
 import { database } from './Firebase/firebase';
 
-const writeOrder = () => {
-    window.location.href = "https://google.com";
-};
+
 
 class ButtonFood extends Component {
     constructor() {
         super();
         this.state = {
-            mMenu: ''
+            mMenu: '',
+            order: ''
         }
     }
+
+
     componentDidMount() {
         const dbRef = database.ref();
         const mMenuRef = dbRef.child('morningMenu');
@@ -21,7 +22,22 @@ class ButtonFood extends Component {
                 mMenu: snap.val()
             })
         });
+
+        const dbRefOrder = database.ref();
+        const orderRef = dbRefOrder.child('order');
+        orderRef.on('value', snap => {
+            this.setState({
+                order: snap.val()
+            })
+        });
+
     }
+
+
+    writeOrder = () => {
+        console.log('hol');
+    };
+
     render() {
         if (Array.isArray(this.state.mMenu)) {
             return (
@@ -29,14 +45,15 @@ class ButtonFood extends Component {
                     this.state.mMenu.map(menuItem => 
                     <button 
                     key={menuItem.id}
+                    onClick={this.writeOrder}
                     >
-                    {menuItem.item}
+                        {menuItem.item}
                     </button>)
-                } </section>
+                } </section>                
             )
         }
         return (
-            "loading"
+            "Loading..."
         )
     }
 }

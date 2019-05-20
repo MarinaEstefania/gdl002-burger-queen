@@ -1,8 +1,21 @@
-import React, {Component} from 'react';
-/* import firebase from 'firebase';
-import {database} from './Firebase/firebase'; */
+import React from 'react';
 
-class Order extends Component{
+
+const Order = (props) => {
+    return (
+        <div>
+            <p>{'ss'}</p>
+        </div>
+    )
+}
+
+export default Order
+
+
+
+
+
+/* class Order extends Component{
   
     state = {
             order: [1]
@@ -32,4 +45,4 @@ this.setState ( {
 }
 
 
-export default Order;
+export default Order; */

@@ -19,6 +19,7 @@ class App extends Component{
 
         <section className='food-optionSection'>
           <ButtonFood 
+          
           className='btn-info'
           />
         </section>
