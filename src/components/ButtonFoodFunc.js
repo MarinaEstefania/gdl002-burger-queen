@@ -6,6 +6,7 @@ const ButtonFoodFunc = (props) => {
     return (
         <div>
             <button
+            key={props.key}
             onClick={props.action}>
              {props.item}
              <p>

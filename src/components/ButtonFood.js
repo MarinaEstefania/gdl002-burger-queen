@@ -1,35 +1,42 @@
 import React, { Component } from 'react';
 import './style.css'
-import ButtonFoodFunc from './ButtonFoodFunc'
-import { morningMenu } from '../morningMenu.json';
+import { database } from './Firebase/firebase';
 
-const navigateToGoogle = () => {
+const writeOrder = () => {
     window.location.href = "https://google.com";
-  };
+};
 
 class ButtonFood extends Component {
     constructor() {
         super();
-        this.state= {
-            morningMenu
+        this.state = {
+            mMenu: ''
         }
     }
+    componentDidMount() {
+        const dbRef = database.ref();
+        const mMenuRef = dbRef.child('morningMenu');
+        mMenuRef.on('value', snap => {
+            this.setState({
+                mMenu: snap.val()
+            })
+        });
+    }
     render() {
-       const morningMenues = this.state.morningMenu.map((morningMenu, i) => {
+        if (Array.isArray(this.state.mMenu)) {
             return (
-                <div>
-                    <ButtonFoodFunc 
-                    action={navigateToGoogle}
-                    key={i}
-                    item={morningMenu.item}
-                  /*   img={morningMenu.img} *//>
-                </div>
+                <section> {
+                    this.state.mMenu.map(menuItem => 
+                    <button 
+                    key={menuItem.id}
+                    >
+                    {menuItem.item}
+                    </button>)
+                } </section>
             )
-        })
+        }
         return (
-            <div >
-                {morningMenues}
-            </div>
+            "loading"
         )
     }
 }

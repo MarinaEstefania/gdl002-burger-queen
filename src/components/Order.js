@@ -1,32 +1,35 @@
 import React, {Component} from 'react';
-import firebase from 'firebase';
-import {database} from './Firebase/firebase';
+/* import firebase from 'firebase';
+import {database} from './Firebase/firebase'; */
 
 class Order extends Component{
-    constructor (){
-        super()
-        const dbRef = database.ref();
-        const speedRef = dbRef.child('speed');
-        console.log(speedRef)
-        this.state = {
-            speed: 1000
-        }
+  
+    state = {
+            order: [1]
     }
-/*       componentDidMount(){
-        this.database.on('value', snap =>{
-            this.setStat({
-                speed: snap.val()
-            })
-        });
-    }   */
+    
+
+    newOrder =()=> {
+this.setState ( {
+    order: '2'
+})
+    }
+
 
     render(){
         return(
             <div >
-                <h1>{this.state.speed}</h1>
+                
+                <h1>Order</h1>
+                <button onClick={this.newOrder}
+                >+
+                </button>
+                <p>{this.state.order}</p>
+                <button>-</button>
               </div>
         )
     }
 }
+
 
 export default Order;
