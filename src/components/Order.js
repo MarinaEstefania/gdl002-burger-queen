@@ -1,48 +1,45 @@
-import React from 'react';
-
-
-const Order = (props) => {
-    return (
-        <div>
-            <p>{'ss'}</p>
-        </div>
-    )
-}
-
-export default Order
+import React, { Component } from 'react';
+import './style.css'
+import { database } from './Firebase/firebase';
 
 
 
-
-
-/* class Order extends Component{
-  
-    state = {
-            order: [1]
-    }
-    
-
-    newOrder =()=> {
-this.setState ( {
-    order: '2'
-})
+class ButtonFood extends Component {
+    constructor() {
+        super();
+        this.state = {
+            order: ''
+        }
     }
 
 
-    render(){
-        return(
-            <div >
-                
-                <h1>Order</h1>
-                <button onClick={this.newOrder}
-                >+
-                </button>
-                <p>{this.state.order}</p>
-                <button>-</button>
-              </div>
+    componentDidMount() {
+        const dbRefOrder = database.ref();
+        const orderRef = dbRefOrder.child('Order');
+        orderRef.on('value', snap => {
+            this.setState({
+                order: snap.val()
+            })
+        });
+    }
+
+    render() {
+        if (Array.isArray(this.state.order)) {
+            
+            return (
+                <section> {
+                    this.state.order.map(orderItem => 
+                    <p                   
+                    >
+                        {orderItem.full_name}, {orderItem.date_of_birth}
+                    </p>)
+                } </section>                
+            )
+        }
+        return (
+          'Loading...'
         )
     }
 }
 
-
-export default Order; */
+export default ButtonFood;
