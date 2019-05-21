@@ -1,0 +1,60 @@
+{
+    "dinnerMenu": [
+        {
+            "hamburguesas": [
+                {
+                    "item": "Hamburguesa Simple",
+                    "price": 10,
+                    "img": "https://sifu.unileversolutions.com/image/es-MX/recipe-topvisual/2/1260-709/hamburguesa-clasica-50425188.jpg",
+                    "id": "hamSim"
+                },
+                {
+                    "item": "Hamburguesa Doble",
+                    "price": 15,
+                    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXPGR7LlhS7WscHDIu4WiRDcq5cBTgNfHT5Pwe1s9M0Inz4Ozvaw",
+                    "id": "hamDob"
+                }
+            ],
+            "acompañamientos": [
+                {
+                    "item": "Papas Fritas",
+                    "price": 5,
+                    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fries_2.jpg/1200px-Fries_2.jpg",
+                    "id": "papas"
+                },
+                {
+                    "item": "Aros de Cebolla",
+                    "price": 15,
+                    "img": "https://static.guiainfantil.com/pictures/recetas2/44000/44822-4-aros-de-cebolla-rebozados-receta-casera-para-ninos.jpg",
+                    "id": "cebolla"
+                }
+            ],
+            "paraTomar": [
+                {
+                    "item": "Agua 500 ml",
+                    "price": 5,
+                    "img": "https://super.walmart.com.mx/images/product-images/img_large/00750179164998L.jpg",
+                    "id": "agua500"
+                },
+                {
+                    "item": "Agua 750 ml",
+                    "price": 7,
+                    "img": "https://www.chedraui.com.mx/medias/758104100422-00-CH515Wx515H?context=bWFzdGVyfHJvb3R8NDc3NjB8aW1hZ2UvanBlZ3xoZWMvaDkyLzkyMzI5NzY1MTEwMDYuanBnfGE2NTQ5MGZhYmQzOWE0MDc4ZDk1MGQxZGMwMGMyMGQ1ZDg0NDYzOTU1ZGMyZTg0MjFmNmM5MjY4ZmE3MTQ1YjE",
+                    "id": "agua700"
+                },
+                {
+                    "item": "Bebida/Gaseosa 500ml",
+                    "price": 7,
+                    "img": "https://super.walmart.com.mx/images/product-images/img_large/00000007500980L.jpg",
+                    "id": "bebida500"
+                },
+                {
+                    "item": "Bebida/Gaseosa 750ml",
+                    "price": 10,
+                    "img": "http://4.imimg.com/data4/UK/MS/GLADMIN-2/coca-cola-cold-drink-500x500.jpg",
+                    "id": "bebida750"
+                }
+            ]
+        }
+    ]
+}

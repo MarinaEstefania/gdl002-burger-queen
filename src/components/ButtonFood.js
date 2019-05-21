@@ -24,13 +24,15 @@ class ButtonFood extends Component {
             })
         });
 
-        
+    }
+
+    componentWillMount () {
         const dbRefOrder = database.ref();
         const orderRef = dbRefOrder.child('Order');
         orderRef.set([
             {
              date_of_birth: "JunDSe 23, 1912",
-             full_name: "Alan SSSa´pdsla´pdTuSDSSDring"
+             full_name: ":3 Alan SSSa´pdsla´pdTuSDSSDring"
            },
             {
              date_of_birth: "December 9, 1906",
@@ -42,7 +44,7 @@ class ButtonFood extends Component {
 
 
     writeOrder = () => {
-        console.log('hol');
+        console.log(this.state.order);
     };
 
     render() {
@@ -50,8 +52,9 @@ class ButtonFood extends Component {
             
             return (
                 <section> {
-                    this.state.mMenu.map(menuItem => 
+                    this.state.mMenu.map((menuItem, i) => 
                     <button 
+                    className={i}
                     key={menuItem.id}
                     onClick={this.writeOrder}
                     >

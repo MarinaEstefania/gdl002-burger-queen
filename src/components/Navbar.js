@@ -6,7 +6,7 @@ class Navigation extends Component{
         return(
             <div >
                 <nav className='navigation navbar navbar-dark bg-dark '>
-                    <a href="www.google.com" className='text-white'>{this.props.title}</a>
+                    <a href="#" className='text-white'>{this.props.title}</a>
                 </nav>
               </div>
         )

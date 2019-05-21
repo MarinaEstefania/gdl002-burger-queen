@@ -28,9 +28,10 @@ class ButtonFood extends Component {
             
             return (
                 <section> {
-                    this.state.order.map(orderItem => 
-                    <p                   
-                    >
+                    this.state.order.map((orderItem,i) => 
+                    <p
+                    key={i}                   
+                    >   
                         {orderItem.full_name}, {orderItem.date_of_birth}
                     </p>)
                 } </section>                
