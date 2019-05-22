@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css'
-import Order from './Order'
+/* import Order from './Order' */
 import { database } from './Firebase/firebase';
 
 
@@ -10,7 +10,7 @@ class DinnerMenu extends Component {
     constructor() {
         super();
         this.state = {
-            mMenu: '',
+            dinMenu: '',
             order: ''
         }
     }
@@ -18,10 +18,10 @@ class DinnerMenu extends Component {
 
     componentDidMount() {
         const dbRef = database.ref();
-        const mMenuRef = dbRef.child('morningMenu');
-        mMenuRef.on('value', snap => {
+        const dinMenuRef = dbRef.child('dinnerMenu');
+        dinMenuRef.on('value', snap => {
             this.setState({
-                mMenu: snap.val()
+                dinMenu: snap.val()
             })
         });
 
@@ -45,15 +45,15 @@ class DinnerMenu extends Component {
  */
 
     writeOrder = () => {
-        console.log(this.state.order);
+        console.log('hola');
     };
 
     render() {
-        if (Array.isArray(this.state.mMenu)) {
+        if (Array.isArray(this.state.dinMenu)) {
             
             return (
                 <section> {
-                    this.state.mMenu.map((menuItem, i) => 
+                    this.state.dinMenu.map((menuItem, i) => 
                     <button 
                     className={i}
                     key={menuItem.id}

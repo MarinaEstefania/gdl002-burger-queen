@@ -4,7 +4,7 @@ import { database } from './Firebase/firebase';
 
 
 
-class ButtonFood extends Component {
+class Kitchen extends Component {
     constructor() {
         super();
         this.state = {
@@ -24,22 +24,21 @@ class ButtonFood extends Component {
     }
 
     render() {
-
         if (Array.isArray(this.state.order)) {
-
+            
             return (
                 <section> {
-                    this.state.order.map(orderItem =>
-                        <ul key={orderItem.full_name} className="list-group">
-                            <li className="list-group-item"><span >1</span>{orderItem.full_name}  <button>x</button></li>
-                        </ul>
-                    )} </section>
+                    this.state.order.map((orderItem, i) => 
+                    <p key={i}>
+                        {orderItem.full_name}
+                    </p>)
+                } </section>                
             )
         }
         return (
-            'Cargando Orden ...'
+          'Loading...'
         )
     }
 }
 
-export default ButtonFood;
+export default Kitchen;
