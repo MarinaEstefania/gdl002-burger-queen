@@ -25,25 +25,12 @@ class DinnerMenu extends Component {
             })
         });
 
+
+        
     }
 
-   /*  componentWillMount () {
-        const dbRefOrder = database.ref();
-        const orderRef = dbRefOrder.child('Order');
-        orderRef.set([
-            {
-             date_of_birth: "JunDSe 23, 1912",
-             full_name: ":3 Alan SSSa´pdsla´pdTuSDSSDring"
-           },
-            {
-             date_of_birth: "December 9, 1906",
-             full_name: "Grace Hopper"
-           }
-       ]);
-
-    }
- */
-
+    
+    
     writeOrder = () => {
         console.log('hola');
     };

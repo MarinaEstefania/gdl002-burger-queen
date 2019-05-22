@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './style.css'
-/* import Order from './Order' */
 import { database } from './Firebase/firebase';
 
 
@@ -12,18 +11,8 @@ class MorningMenu extends Component {
             mMenu: '',
             order: []
         }
+        this.submit = this.submit.bind(this);
     }
-
-    addItem () {
-        const {order} = this.state
-        alert('hi')
-        /* const {order} = this.state.order
-        const newItem = "test";
-        this.setState({
-            order: [...this.state.order, newItem]
-        })  */
-    };
-
 
     componentDidMount() {
         const dbRef = database.ref();
@@ -33,44 +22,57 @@ class MorningMenu extends Component {
                 mMenu: snap.val()
             })
         });
-        
-    }
 
-   /*   componentWillMount () {
-        const dbRefOrder = database.ref();
-        const orderRef = dbRefOrder.child('Order');
+        /* const dbRefOrder = database.ref();
+        const orderRef = dbRefOrder.child('order');
         orderRef.set([
             {
              date_of_birth: "JunDSe 23, 1912",
-             full_name: "comida"
+             full_name: "44444"
            },
             {
              date_of_birth: "December 9, 1906",
-             full_name: "bebida"
+             full_name: "77777"
            }
-       ]);
+       ]);*/
+    }
 
-    }  */
+    submit(item, price) {
+        console.log(item, price)
 
+        const newItem = {
+            item: item,
+            price: price
+        }
+        this.setState({
+            order: [...this.state.order, newItem]
+        })
+    }
 
 
     render() {
         if (Array.isArray(this.state.mMenu)) {
-            
+
             return (
                 <section> {
-                    this.state.mMenu.map(menuItem => 
-                    <button 
-                    type="submit"
-                    key={menuItem.id}
-                    onClick={this.addItem}>
-                        {menuItem.item}
-                    </button>)
-                } </section>                
+                    
+                    this.state.mMenu.map(menuItem =>
+                        <button
+                            
+                            key={menuItem.id}
+                            onClick={() => {
+                                this.submit(menuItem.item, menuItem.price);
+                            }} type="submit" >
+                            <p>     {this.state.order.map(order =>
+                                <div>{order.item}</div>)}</p>
+                            {menuItem.item}    {/* <img src={menuItem.img}></img> */}
+                        </button>)
+
+                } </section>
             )
         }
         return (
-          'Loading...'
+            'Loading...'
         )
     }
 }

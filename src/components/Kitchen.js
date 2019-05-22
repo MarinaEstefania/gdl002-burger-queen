@@ -15,7 +15,7 @@ class Kitchen extends Component {
 
     componentDidMount() {
         const dbRefOrder = database.ref();
-        const orderRef = dbRefOrder.child('Order');
+        const orderRef = dbRefOrder.child('order');
         orderRef.on('value', snap => {
             this.setState({
                 order: snap.val()
