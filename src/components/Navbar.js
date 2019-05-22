@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
-
+import {Link} from 'react-router-dom';
 
 class Navigation extends Component{
     render(){
         return(
             <div >
-                <nav className='navigation navbar navbar-dark bg-dark '>
-                    <a href="#" className='text-white'>{this.props.title}</a>
+                 <nav>
+                <button ><Link  to="MenuDesayuno">Desayunos</Link></button>
+                <button  ><Link  to="MenuComida">Comidas</Link></button>
                 </nav>
               </div>
         )
