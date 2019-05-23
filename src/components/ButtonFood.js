@@ -1,36 +1,20 @@
-import React, { Component } from 'react';
-import './style.css'
-import { morningMenu } from '../morningMenu.json';
+import React from 'react';
 
-const itemsAmountMorning = morningMenu.lenght;
-console.log(itemsAmountMorning);
+/* const navigateToGoogle = () => {
+    window.location.href = "https://google.com";
+  };
+ */
 
-class ButtonFood extends Component {
-    constructor() {
-        super();
-        this.state = {
-            morningMenu
-        }
-    }
-    render() {
-       const morningMenues = this.state.morningMenu.map((morningMenu, i) => {
-            return (
-                <div>
-                    <button key={[i]} className={`btn button-food ${this.props.className}`} >
-                        {morningMenu.item}
-                        {/* <p>{morningMenu.price}</p> */}
-                        {/*   <p>{i}</p> */}
-                        <p><img className="imgItem" src={morningMenu.img} alt={this.props.alt} /></p>
-                    </button>
-                </div>
-            )
-        })
-        return (
-            <div >
-                {morningMenues}
-            </div>
-        )
-    }
+const ButtonFoodFunc = (props) => {
+    return (
+        <div>
+            <button
+            
+            >
+             {props.item}
+            </button>
+        </div>
+    )
 }
 
-export default ButtonFood;
+export default ButtonFoodFunc
