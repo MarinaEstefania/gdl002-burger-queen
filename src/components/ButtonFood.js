@@ -1,20 +1,18 @@
 import React from 'react';
 
-/* const navigateToGoogle = () => {
-    window.location.href = "https://google.com";
-  };
- */
 
-const ButtonFoodFunc = (props) => {
+const ButtonFood = (props) => {
     return (
         <div>
-            <button
-            
-            >
-             {props.item}
-            </button>
+           <button
+                key={menuItem.id}
+                onClick={props.action}
+                type="submit">
+                    {menuItem.item}
+                    {/* <img src={menuItem.img}></img> */}
+                </button>
         </div>
     )
 }
 
-export default ButtonFoodFunc
+export default ButtonFood

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css'
-import { database } from './Firebase/firebase';
+import firebase from './Firebase/firebase';
 
 
 
@@ -12,9 +12,9 @@ class ButtonFood extends Component {
         }
     }
 
-
+ 
     componentDidMount() {
-        const dbRefOrder = database.ref();
+        const dbRefOrder = firebase.database().ref();
         const orderRef = dbRefOrder.child('order');
         orderRef.on('value', snap => {
             this.setState({

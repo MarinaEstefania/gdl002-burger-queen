@@ -1,7 +1,7 @@
-import * as firebase from 'firebase';
+import firebase from 'firebase';
 
 //Web app's Firebase configuration
-export const firebaseConfig = {
+ const firebaseConfig = {
     apiKey: "AIzaSyB_yVvrnR9-W9DbbxVi2yx53O49jL4wPaM",
     authDomain: "burger-queen-gdl002.firebaseapp.com",
     databaseURL: "https://burger-queen-gdl002.firebaseio.com",
@@ -11,15 +11,7 @@ export const firebaseConfig = {
     appId: "1:14744371401:web:b161951d0904c8ce"
   };
 
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-  }
-
-  const database = firebase.database();
-
-  export {
-    database
-  };
-
+  firebase.initializeApp(firebaseConfig);
+  export default firebase;
 
 
