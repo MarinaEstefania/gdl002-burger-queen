@@ -30,9 +30,9 @@ class Kitchen extends Component {
         const dbRefOrder = firebase.database().ref();
         const orderRef = dbRefOrder.child('order');
         orderRef.on('value', snap => {
-            const array = snapshotToArray(snap)
+            const OrdersLikeArray = snapshotToArray(snap)
             this.setState({
-                order: array
+                order: OrdersLikeArray
             })
         });
     }
@@ -44,11 +44,13 @@ class Kitchen extends Component {
             
             return (
                 <section> { 
-                    this.state.order.map((orderItem, i) => 
-                    <div class="card" >
-                        {orderItem[0].orden.map((iitem, i) =>
-                        <p> {iitem.item}</p>)
+                    this.state.order.map((orders, i) => 
+                    <div class="card" > 
+                        <h5 class="card-title">Orden no. {i}</h5>
+                        {orders[0].orden.map((items, i) =>
+                        <p> {items.item}</p>)
                         }
+                        <button>¡Terminado!</button>
                     </div>)
                 } </section>                
             )
