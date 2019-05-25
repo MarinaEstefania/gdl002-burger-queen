@@ -3,7 +3,7 @@ import './style.css'
 import firebase from './Firebase/firebase';
 /* import ButtonFood from '-./ButtonFood' */
 import Ticket from './Ticket'
-
+import SendToKitchen from './SendToKitchen'
 
 
 class MorningMenu extends Component {
@@ -35,7 +35,9 @@ class MorningMenu extends Component {
             order: [...this.state.order, newItem]
         })
     }
+    
     render() {
+        console.log(this.state.order)
         const mMenuBtn = this.state.mMenu.map(menuItem => {
             return (
                 <button
@@ -55,7 +57,7 @@ class MorningMenu extends Component {
                 
                 </ButtonFood> */}
                 <div>{mMenuBtn}</div>
-                <Ticket order={this.state.order}></Ticket>
+                 <Ticket order={this.state.order}></Ticket>
             </div>
         )
     }

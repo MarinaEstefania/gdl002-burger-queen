@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
+import firebase from './Firebase/firebase';
 
-
-
+// stateful (class)
+// stateless (arrow function)
 class SendToKitchen extends Component {
-    componentDidMount(){
+    constructor(props) {
+        super(props);
+        this.state = {
+            speed:[]
+        }
+        this.sendOrder = this.sendOrder.bind(this)
+    }
+
+
+    sendOrder(){
         //READ
      const dbRef = firebase.database().ref();
-     const speedRef = dbRef.child('order');
+     const speedRef = dbRef.child('morningMenu')
      speedRef.on('value', snap =>{
          this.setState({
              speed: snap.val()
@@ -15,23 +25,18 @@ class SendToKitchen extends Component {
 
      //CREATE
      const dbRefOrder = firebase.database().ref();
-     const orderRef = dbRefOrder.child('order');
-     orderRef.set([
+     const orderRef = dbRefOrder.child('order'); 
+     orderRef.push([
          {
-          date_of_birth: "JunDSe 23, 1912",
-          full_name: "44444"
-        },
-         {
-          date_of_birth: "December 9, 1906",
-          full_name: "77777"
+          orden: this.props.SendToKitchen,
+          date: new Date()
         }
     ]);
  }
     render() {
-           
         return (
             <div>
-                <button>Enviar a Cocina</button>
+                <button onClick={this.sendOrder}>Enviar a Cocina</button>
             </div>
 
         )

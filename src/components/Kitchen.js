@@ -8,29 +8,48 @@ class Kitchen extends Component {
     constructor() {
         super();
         this.state = {
-            order: ''
+            order: '',
+           
         }
     }
-
+    
     componentDidMount() {
+        function snapshotToArray(snapshot) {
+            var returnArr = [];
+        
+            snapshot.forEach(function(childSnapshot) {
+                var item = childSnapshot.val();
+                item.key = childSnapshot.key;
+        
+                returnArr.push(item);
+            });
+        
+            return returnArr;
+        };
+        
         const dbRefOrder = firebase.database().ref();
         const orderRef = dbRefOrder.child('order');
         orderRef.on('value', snap => {
+            const array = snapshotToArray(snap)
             this.setState({
-                order: snap.val()
+                order: array
             })
         });
     }
 
+    
     render() {
+       //console.log(this.state.order)
         if (Array.isArray(this.state.order)) {
             
             return (
-                <section> {
+                <section> { 
                     this.state.order.map((orderItem, i) => 
-                    <p key={i}>
-                        {orderItem.full_name}
-                    </p>)
+                    <div class="card" >
+                        {orderItem[0].orden.map((iitem, i) =>
+                        <p> {iitem.item}</p>)
+                        }
+                    </div>)
                 } </section>                
             )
         }
