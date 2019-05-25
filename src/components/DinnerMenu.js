@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.css'
 /* import Order from './Order' */
-import { database } from './Firebase/firebase';
+import firebase from './Firebase/firebase';
 
 
 
@@ -17,7 +17,7 @@ class DinnerMenu extends Component {
 
 
     componentDidMount() {
-        const dbRef = database.ref();
+        const dbRef = firebase.database().ref();
         const dinMenuRef = dbRef.child('dinnerMenu');
         dinMenuRef.on('value', snap => {
             this.setState({
