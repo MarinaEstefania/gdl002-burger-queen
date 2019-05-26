@@ -6,8 +6,8 @@ class Navigation extends Component{
         return(
             <div >
                  <nav>
-                <button ><Link  to="MenuDesayuno">Desayunos</Link></button>
-                <button  ><Link  to="MenuComida">Comidas</Link></button>
+                <button ><Link  to="Meseros">Meseros</Link></button>{/* 
+                <button  ><Link  to="MenuComida">Comidas</Link></button> */}
                 <button  ><Link  to="Cocina">Cocina</Link></button>
                 </nav>
               </div>

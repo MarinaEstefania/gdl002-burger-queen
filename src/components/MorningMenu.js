@@ -1,27 +1,38 @@
-import React, { Component } from 'react';
-import './style.css'
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import firebase from './Firebase/firebase';
-/* import ButtonFood from '-./ButtonFood' */
 import Ticket from './Ticket'
-import SendToKitchen from './SendToKitchen'
-
-
-class MorningMenu extends Component {
-    constructor() {
-        super();
+class MorningMenu extends Component{
+    constructor(props) {
+        super(props);
         this.state = {
-            mMenu: [],
-            order: []
+            menuButtons:this.props.menuButtons,
+            order: this.props.order,
+            morning: this.props.morning,
+            dinner: this.props.dinner,
+            menuSelected: this.props.menuSelected
         }
-        this.submit = this.submit.bind(this);
+       this.submit = this.submit.bind(this);
     }
-
-    componentDidMount() {
-        const dbRef = firebase.database().ref();
-        const mMenuRef = dbRef.child('morningMenu');
-        mMenuRef.on('value', snap => {
+    chooseMenu = (menu)=>{
+        if (menu== 'morningMenu'){
+          this.setState({
+            menuSelected: 'morningMenu'
+        })}
+        else{
             this.setState({
-                mMenu: snap.val()
+                menuSelected: 'dinnerMenu'
+            })
+        } 
+       // console.log(this.state.morning)
+    }
+    componentWillMount() {
+        
+        const dbRef = firebase.database().ref();
+        const menuRef = dbRef.child(this.state.menuSelected);
+        menuRef.on('value', snap => {
+            this.setState({
+                menuButtons: snap.val()
             })
         });
     }
@@ -35,10 +46,8 @@ class MorningMenu extends Component {
             order: [...this.state.order, newItem]
         })
     }
-    
-    render() {
-        console.log(this.state.order)
-        const mMenuBtn = this.state.mMenu.map(menuItem => {
+    render(){
+        const menuBtn = this.state.menuButtons.map(menuItem => {
             return (
                 <button
                 key={menuItem.id}
@@ -49,16 +58,14 @@ class MorningMenu extends Component {
                 </button>
             )
         });
-        return (
-            <div>
-               {/*  <ButtonFood
-                key= {menuItem.id}
-                action={() => {this.submit(menuItem.item, menuItem.price);}}>
+        return(
+            <div >
+                 <button onClick={()=>this.chooseMenu(this.state.morning)}>Menu de Dia</button>
+                <button onClick={()=>this.chooseMenu(this.state.dinner)}>Menu de Cena</button>
                 
-                </ButtonFood> */}
-                <div>{mMenuBtn}</div>
-                 <Ticket order={this.state.order}></Ticket>
-            </div>
+                <div>{menuBtn}</div>
+                <Ticket order={this.state.order}/>
+              </div>
         )
     }
 }
