@@ -1,10 +1,24 @@
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+
+class DinnerMenu extends Component{
+    
+    render(){
+        return(
+            <div >
+             Menu de Noche
+              </div>
+        )
+    }
+}
+
+export default DinnerMenu;
+
+/* 
 import React, { Component } from 'react';
 import './style.css'
-/* import Order from './Order' */
+
 import firebase from './Firebase/firebase';
-
-
-
 
 class DinnerMenu extends Component {
     constructor() {
@@ -29,11 +43,6 @@ class DinnerMenu extends Component {
         
     }
 
-    
-    
-    writeOrder = () => {
-        console.log('hola');
-    };
 
     render() {
         if (Array.isArray(this.state.dinMenu)) {
@@ -58,3 +67,4 @@ class DinnerMenu extends Component {
 }
 
 export default DinnerMenu;
+ */
