@@ -1,29 +1,34 @@
 import React, { Component } from 'react';
 import SendToKitchen from './SendToKitchen'
+import DeleteTicketItem from './DeleteTicketItem'
 
 
 class Ticket extends Component {
-    render(props) {
-            const newOrder = this.props.order
-            console.log(newOrder)
-            const newTicket = 
+
+    /* delete = (del) => {
+        console.log(del)
+        console.log(this.props.order)
+        this.setState([])
+    } */
+ 
+    render() {
+      const newOrder = this.props.order
+     //  console.log(newOrder)
+        const newTicket =
             newOrder.map(order =>
-            
-            <ul key={order.key} className="list-group">
-                <li key={order.key} className="list-group-item">
-                    <span key={order.key}>1</span>
-                    {order.item}   
-                    ${order.price}
-                    <button key={order.key}>x</button>
-                    <button key={order.key}>+</button>
-                    <button key={order.key}>-</button>
-                </li>
-            </ul>)
-           
+                
+                <ul className="list-group">
+                    <li className="list-group-item">
+                        <span>1</span>
+                        {order.item}
+                        ${order.price}
+                        <button onClick={this.props.handleSort(order.id)}>Eliminar</button>
+                    </li>
+                </ul>)
         return (
             <div>
-                { newTicket}
-                <SendToKitchen SendToKitchen={this.props.order}/>
+                {newTicket}
+                <SendToKitchen SendToKitchen={this.props.order} />
             </div>
 
         )

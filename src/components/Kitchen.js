@@ -37,20 +37,35 @@ class Kitchen extends Component {
         });
     }
 
+    delete(key){
+        console.log(key)
+     /*    const dbRefOrder = firebase.database().ref();
+        const orderRef = dbRefOrder.child('order')
+        orderRef.map(item=>{
+            console.log(item.key)
+        }) */
+         console.log('delete')
+         const dbRefOrder = firebase.database().ref();
+        const orderRef = dbRefOrder.child('order').child(key);
+        orderRef.remove() 
+    }
     
     render() {
-       //console.log(this.state.order)
         if (Array.isArray(this.state.order)) {
             
+     /*        this.state.order.map(item=>{
+     
+             console.log(item.key)}) */
             return (
                 <section> { 
                     this.state.order.map((orders, i) => 
                     <div class="card" > 
                         <h5 class="card-title">Orden no. {i}</h5>
                         {orders[0].orden.map((items, i) =>
-                        <p> {items.item}</p>)
+                        <p> {items.item}
+                        </p>)
                         }
-                        <button>¡Terminado!</button>
+                    <button onClick={()=>this.delete(orders.key)}>¡Terminado!</button>
                     </div>)
                 } </section>                
             )

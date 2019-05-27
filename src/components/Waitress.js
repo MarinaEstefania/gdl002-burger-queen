@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import './style.css'
 import firebase from './Firebase/firebase';
-/* import ButtonFood from '-./ButtonFood' */
 import Ticket from './Ticket'
 import MorningMenu from './MorningMenu';
 
-
-
 class Waitress extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        var handleSort = this.handleSort.bind(this)
         this.state = {
             menuButtons: [],
             order: [],
@@ -17,7 +15,8 @@ class Waitress extends Component {
             dinner: 'dinnerMenu',
             menuSelected: 'morningMenu'
         }
-        this.submit = this.submit.bind(this);
+        this.submitItem = this.submitItem.bind(this);
+        this.handleSort = this.handleSort.bind(this)
     }
 
     chooseMenu = (menu) => {
@@ -47,9 +46,7 @@ class Waitress extends Component {
         }
     }
 
-
     componentDidMount() {
-
         const dbRef = firebase.database().ref();
         const menuRef = dbRef.child('morningMenu');
         menuRef.on('value', snap => {
@@ -59,23 +56,68 @@ class Waitress extends Component {
         });
     }
 
-    submit(item, price) {
+    submitItem(item, price, img, id) {
         const newItem = {
             item: item,
-            price: price
+            price: price,
+            img: img,
+            id: id
         }
         this.setState({
             order: [...this.state.order, newItem]
         })
     }
 
+    handleSort = value => event => {
+        console.log(value)
+      //  this.setState({idItemToEliminate:value})
+        let array = this.state.order.find(item=>{
+            return item.id ==value
+        })
+/*         array.id.filter(id =>{
+            return  id!== value
+        }) */
+        console.log('item para eliminar' + array)
+        const newOrder = this.state.order
+        newOrder.forEach(function(i){
+            console.log( i)
+            var index = newOrder.indexOf(array);
+            newOrder.splice(index, 1)
+            console.log(newOrder)
+        })
+        
+        console.log('orden antes de eliminar' + newOrder)
+        var index = newOrder.indexOf(array);
+        console.log('index ' + index)
+        console.log('orden despues de .splice' + newOrder.splice(index, 1))
+        
+        if (index > -1) {
+            this.setState({
+                order: [newOrder.splice(index, 1)]
+            }) 
+         }
+         
+         
+    /*     console.log(value)
+        //  this.setState({idItemToEliminate:value})
+          let array = this.state.order.map(item=>{
+              
+              return item.id !==value
+          })
+  /*         array.id.filter(id =>{
+              return  id!== value
+          }) */
+         // console.log(array) */
+  
+    }
+
     render() {
-        console.log(this.state.order)
-        const menuBtn = this.state.menuButtons.map(menuItem => {
+        const handleSort = this.handleSort
+         const menuBtn = this.state.menuButtons.map(menuItem => {
             return (
                 <button
                     key={menuItem.id}
-                    onClick={() => { this.submit(menuItem.item, menuItem.price); }}
+                    onClick={() => { this.submitItem(menuItem.item, menuItem.price, menuItem.img, menuItem.id); }}
                     type="submit">
                     {menuItem.item} WA
                     {/* <img src={menuItem.img}></img> */}
@@ -85,22 +127,17 @@ class Waitress extends Component {
 
         return (
             <div>
-                {/*  <ButtonFood
-                key= {menuItem.id}
-                action={() => {this.submit(menuItem.item, menuItem.price);}}>
-                
-                </ButtonFood> */}
-                <button onClick={() => this.chooseMenu(this.state.morning)}>Menu de Dia WAI</button>
-                <button onClick={() => this.chooseMenu(this.state.dinner)}>Menu de CenaWAI</button>
-                <div>{menuBtn}</div>
-
-                {/*    <MorningMenu
-                     menuSelected = {this.state.menuSelected}
-                     menuButtons= {this.state.menuButtons}
-                     order= {this.state.order}
-                     morning= {this.state.morning}
-                     dinner= {this.state.dinner}/> */}
-                <Ticket order={this.state.order} />
+                <section className="choose-menu">
+                    <button onClick={() => this.chooseMenu(this.state.morning)}>Menu de Dia WAI</button>
+                  <button onClick={() => this.chooseMenu(this.state.dinner)}>Menu de Cena WAI</button>
+                </section>
+                <section className="menu-buttons">
+                    {menuBtn}
+                </section>
+                <section className="ticket"></section>
+               <Ticket 
+                order={this.state.order} 
+                handleSort={handleSort.bind(this)}/> 
             </div>
         )
     }
