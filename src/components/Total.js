@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-
-// stateful (class)
-// stateless (arrow function)
 class Total extends Component {
     constructor(props) {
         super(props);
@@ -17,15 +14,15 @@ class Total extends Component {
     }
 
     render() {
-console.log('order: ' + this.props.order)
-         this.props.order.map(item => {
-             console.log('item: ' + item)
+        console.log('order: ' + this.props.order)
+        this.props.order.map(item => {
+            console.log('item: ' + item)
             console.log('item.price: ' + item.price)
-           /* return ( this.total( item.price)) */
+            /* return ( this.total( item.price)) */
         });
         const totalAmount = this.total
         //console.log(this.props.order)
-        
+
         const total = 'hola'
         return (
             <div>
@@ -35,8 +32,8 @@ console.log('order: ' + this.props.order)
         )
     }
 
-    
+
 }
 
 
-export default  Total
+export default Total
