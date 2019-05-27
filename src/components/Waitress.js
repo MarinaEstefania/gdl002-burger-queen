@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import './style.css'
 import firebase from './Firebase/firebase';
 import Ticket from './Ticket'
-import MorningMenu from './MorningMenu';
+
 
 class Waitress extends Component {
     constructor(props) {
         super(props);
-        var handleSort = this.handleSort.bind(this)
         this.state = {
             menuButtons: [],
             order: [],
@@ -16,33 +15,36 @@ class Waitress extends Component {
             menuSelected: 'morningMenu'
         }
         this.submitItem = this.submitItem.bind(this);
-        this.handleSort = this.handleSort.bind(this)
     }
 
     chooseMenu = (menu) => {
         if (menu == 'morningMenu') {
             this.setState({
                 menuSelected: 'morningMenu'
+            }, () => {
+                const dbRef = firebase.database().ref();
+                const menuRef = dbRef.child(this.state.menuSelected);
+                menuRef.on('value', snap => {
+                    this.setState({
+                        menuButtons: snap.val()
+                    })
+                });
             })
-            const dbRef = firebase.database().ref();
-            const menuRef = dbRef.child(this.state.menuSelected);
-            menuRef.on('value', snap => {
-                this.setState({
-                    menuButtons: snap.val()
-                })
-            });
+
         }
         else {
             this.setState({
                 menuSelected: 'dinnerMenu'
+            }, () => {
+                const dbRef = firebase.database().ref();
+                const menuRef = dbRef.child(this.state.menuSelected);
+                menuRef.on('value', snap => {
+                    this.setState({
+                        menuButtons: snap.val()
+                    })
+                });
             })
-            const dbRef = firebase.database().ref();
-            const menuRef = dbRef.child(this.state.menuSelected);
-            menuRef.on('value', snap => {
-                this.setState({
-                    menuButtons: snap.val()
-                })
-            });
+
         }
     }
 
@@ -68,32 +70,28 @@ class Waitress extends Component {
         })
     }
 
-    handleSort = value => event => {
+    handleSort = value => {
         console.log(value)
       //  this.setState({idItemToEliminate:value})
-        let array = this.state.order.find(item=>{
-            return item.id ==value
+        let orderIndex = this.state.order.findIndex(item=>{
+            return item.id === value
         })
 /*         array.id.filter(id =>{
             return  id!== value
         }) */
-        console.log('item para eliminar' + array)
+        console.log(this.order)
         const newOrder = this.state.order
-        newOrder.forEach(function(i){
-            console.log( i)
-            var index = newOrder.indexOf(array);
-            newOrder.splice(index, 1)
-            console.log(newOrder)
-        })
         
-        console.log('orden antes de eliminar' + newOrder)
-        var index = newOrder.indexOf(array);
-        console.log('index ' + index)
-        console.log('orden despues de .splice' + newOrder.splice(index, 1))
+        // console.log('orden antes de eliminar' + newOrder)
+        // var index = newOrder.indexOf(array);
+        // console.log('index ' + index)
+        // console.log('orden despues de .splice' + newOrder.splice(index, 1))
         
-        if (index > -1) {
+        if (orderIndex > -1) {
+            // console.log('index', index);
             this.setState({
-                order: [newOrder.splice(index, 1)]
+                // order: [newOrder.splice(index, 1)],
+                order: [...this.state.order.slice(0, orderIndex), ...this.state.order.slice(orderIndex + 1, this.state.order.length)]
             }) 
          }
          
@@ -112,7 +110,6 @@ class Waitress extends Component {
     }
 
     render() {
-        const handleSort = this.handleSort
          const menuBtn = this.state.menuButtons.map(menuItem => {
             return (
                 <button
@@ -137,7 +134,7 @@ class Waitress extends Component {
                 <section className="ticket"></section>
                <Ticket 
                 order={this.state.order} 
-                handleSort={handleSort.bind(this)}/> 
+                handleSort={this.handleSort}/> 
             </div>
         )
     }

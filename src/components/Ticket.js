@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SendToKitchen from './SendToKitchen'
 import DeleteTicketItem from './DeleteTicketItem'
+import Total from './Total'
 
 
 class Ticket extends Component {
@@ -13,7 +14,6 @@ class Ticket extends Component {
  
     render() {
       const newOrder = this.props.order
-     //  console.log(newOrder)
         const newTicket =
             newOrder.map(order =>
                 
@@ -22,12 +22,13 @@ class Ticket extends Component {
                         <span>1</span>
                         {order.item}
                         ${order.price}
-                        <button onClick={this.props.handleSort(order.id)}>Eliminar</button>
+                        <button onClick={() => this.props.handleSort(order.id)}>Eliminar</button>
                     </li>
                 </ul>)
         return (
             <div>
                 {newTicket}
+          {/*       <Total order = {this.props.order}/> */}
                 <SendToKitchen SendToKitchen={this.props.order} />
             </div>
 
