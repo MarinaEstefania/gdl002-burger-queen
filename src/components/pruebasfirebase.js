@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
-import {database} from './Firebase/firebase';
 
 class Pruebasfirebase extends Component{
     constructor (){

@@ -1,5 +1,4 @@
 import React,{ Component } from 'react';
-import './style.css'
 import firebase from './Firebase/firebase';
 
 class OrdersDone extends Component {

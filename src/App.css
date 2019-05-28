@@ -1,16 +1,6 @@
 
-
-.optionsSection{
-    display: flex;
-}
-
-    .food-optionSection{
-        background: yellowgreen;
-        display: flex;
-        height: 100%;
-        width: 70%
-    }
-
-    .order-section{
-        display: flex;
-    }
+body {
+    color: blueviolet;
+    margin: 0;
+    padding: 0;
+  }

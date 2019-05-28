@@ -1,0 +1,63 @@
+ /* Navbar ///////////////////////////////////////////////// */
+.Navbar{
+    margin-bottom: 2vw;
+}
+
+ /* WAITRESS ///////////////////////////////////////////// */
+.waitress{
+    margin-left: 3vw;
+    margin-right: 3vw;
+    text-align: center;
+/*     
+    background: black; */
+}
+
+
+.choose-menu-btn{
+    
+    margin-right: 12rem
+}
+.morningMenu{
+    margin-right: 2vw;
+}
+
+
+.menuBtns-and-ticket{
+    display: flex;
+    margin: 1vw;
+}
+
+.menu-buttons{
+    display: flex;
+    align-content: stretch;
+ 
+    margin-right: .5rem;
+
+} 
+
+.btn-item{
+    margin: .5rem;
+    
+} 
+.img{
+    width: 100% ;
+    
+}
+
+ /* KITCHEN ///////////////////////////////////////////////// */
+.kitchen-order{
+    margin: 0.5rem;
+    width: 40vw
+}
+
+.btn-terminado{
+    
+    margin-top: 1vw;
+    bottom: 0;
+}
+
+/* SEND TO KITCHEN /////////////////////////////*/
+.btn-send-kitchen{
+    position: absolute;
+    text-align: right
+}

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './style.css'
 import firebase from './Firebase/firebase';
 import Ticket from './Ticket'
-
+import './style/style.css';
 
 class Waitress extends Component {
     constructor(props) {
@@ -84,29 +83,43 @@ class Waitress extends Component {
     render() {
         const menuBtn = this.state.menuButtons.map(menuItem => {
             return (
-                <button
+                <button type="button" class="btn btn-lg btn-primary btn-item col-4"
                     key={menuItem.id}
                     onClick={() => { this.submitItem(menuItem.item, menuItem.price, menuItem.img, menuItem.id); }}
                     type="submit">
-                    {menuItem.item} WA
-                    {/* <img src={menuItem.img}></img> */}
+                    {menuItem.item}
+                    <img className="img" alt={menuItem.item} src={menuItem.img} />
                 </button>
             )
         });
 
         return (
-            <div>
-                <section className="choose-menu">
-                    <button onClick={() => this.chooseMenu(this.state.morning)}>Menu de Dia WAI</button>
-                    <button onClick={() => this.chooseMenu(this.state.dinner)}>Menu de Cena WAI</button>
+            <div className="waitress row">
+
+               
+                <section className="morningMenu">
+                    <button type="button" class="btn btn-warning btn-lg btn-block choose-menu-btn"
+                        onClick={() => this.chooseMenu(this.state.morning)}>
+                        Menu Desayunos
+                    </button>
                 </section>
-                <section className="menu-buttons">
-                    {menuBtn}
+                <section className="dinnerMenu">
+                    <button type="button" class="btn btn-warning btn-lg btn-block choose-menu-btn"
+                        onClick={() => this.chooseMenu(this.state.dinner)}>
+                        Menu Comidas
+                    </button>
                 </section>
-                <section className="ticket"></section>
-                <Ticket
-                    order={this.state.order}
-                    deleteItem={this.deleteItem} />
+
+                <div className="menuBtns-and-ticket row">
+                    <section className="menu-buttons col-7 row alert alert-dismissible alert-secondary">
+                        {menuBtn}
+                    </section>
+                    <section className="ticket col-5 ">
+                        <Ticket 
+                            order={this.state.order}
+                            deleteItem={this.deleteItem} />
+                    </section>
+                </div>
             </div>
         )
     }

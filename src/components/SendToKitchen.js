@@ -13,14 +13,17 @@ class SendToKitchen extends Component {
         orderRef.push([
             {
                 orden: this.props.SendToKitchen,
-                date: new Date().getTime()
+              /*   date: new Date().getTime()  */
             }
         ]);
     }
     render() {
         return (
             <div>
-                <button onClick={this.sendOrder}>Enviar a Cocina</button>
+                <button  type="button" className="btn btn-warning btn-send-kitchen"
+                 onClick={this.sendOrder}>
+                     Enviar a Cocina
+                </button>
             </div>
 
         )
