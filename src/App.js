@@ -18,11 +18,12 @@ class App extends Component {
         <div>
           <h1></h1>
           <Route path="/" component={Navigation} />
-          <Route path="/Meseros" component={Waitress} />
-          <Route path="/Cocina" component={Kitchen} />
+          <Route path="/tomar-orden" component={Waitress} />
+          <Route path="/cocina" component={Kitchen} />
           {/* <Pruebasfirebase></Pruebasfirebase> */}
         </div>
       </Router>
+         /*  <img src=""/> */
     )
   }
 }

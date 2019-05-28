@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import SendToKitchen from './SendToKitchen'
-import DeleteTicketItem from './DeleteTicketItem'
 import Total from './Total'
 
 
@@ -25,7 +24,7 @@ class Ticket extends Component {
                 <a href="#" className="list-group-item list-group-item-action active">
                     Mesero: Carlos </a>
                 {newTicket}
-                {/* <Total order={this.props.order} /> */}
+                <Total order={this.props.order} />
                 <SendToKitchen SendToKitchen={this.props.order} />
             </div>
 

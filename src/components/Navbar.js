@@ -11,7 +11,7 @@ class Navigation extends Component{
                      
                    <ul className="navbar-nav mr-auto">
                       <li className="nav-item"> 
-                       <Link className="navbar-brand"  to="Meseros">Tomar Orden </Link>
+                       <Link className="navbar-brand"  to="tomar-orden">Tomar Orden </Link>
                        </li>
                       <li className="nav-item"> 
                        <Link className="navbar-brand"  to="Cocina">Cocina</Link>
