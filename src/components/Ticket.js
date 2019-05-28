@@ -1,29 +1,31 @@
 import React, { Component } from 'react';
 import SendToKitchen from './SendToKitchen'
+import Total from './Total'
 
 
 class Ticket extends Component {
-    render(props) {
-            const newOrder = this.props.order
-            console.log(newOrder)
-            const newTicket = 
+
+    render() {
+        const newOrder = this.props.order
+        const newTicket =
             newOrder.map(order =>
-            
-            <ul key={order.key} className="list-group">
-                <li key={order.key} className="list-group-item">
-                    <span key={order.key}>1</span>
-                    {order.item}   
-                    ${order.price}
-                    <button key={order.key}>x</button>
-                    <button key={order.key}>+</button>
-                    <button key={order.key}>-</button>
-                </li>
-            </ul>)
-           
+
+                <ul className="list-group">
+                    <li className="list-group-item d-flex justify-content-between align-items-center">
+                        {/* <span>1 </span> */}
+                        <span  class="badge badge-primary badge-pill"> ${order.price}.00</span>
+                        {order.item}
+                        <button type="button" class="btn btn-primary btn-sm btn-danger"
+                            onClick={() => this.props.deleteItem(order.id)}>X</button>
+                    </li>
+                </ul>)
         return (
-            <div>
-                { newTicket}
-                <SendToKitchen SendToKitchen={this.props.order}/>
+            <div >
+                <a href="#" className="list-group-item list-group-item-action active">
+                    Mesero: Carlos </a>
+                {newTicket}
+                <Total order={this.props.order} />
+                <SendToKitchen SendToKitchen={this.props.order} />
             </div>
 
         )

@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import './style.css'
 import firebase from './Firebase/firebase';
-/* import ButtonFood from '-./ButtonFood' */
 import Ticket from './Ticket'
-import MorningMenu from './MorningMenu';
-
-
+import './style/style.css';
 
 class Waitress extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             menuButtons: [],
             order: [],
@@ -17,39 +13,41 @@ class Waitress extends Component {
             dinner: 'dinnerMenu',
             menuSelected: 'morningMenu'
         }
-        this.submit = this.submit.bind(this);
+        this.submitItem = this.submitItem.bind(this);
     }
 
     chooseMenu = (menu) => {
         if (menu == 'morningMenu') {
             this.setState({
                 menuSelected: 'morningMenu'
+            }, () => {
+                const dbRef = firebase.database().ref();
+                const menuRef = dbRef.child(this.state.menuSelected);
+                menuRef.on('value', snap => {
+                    this.setState({
+                        menuButtons: snap.val()
+                    })
+                });
             })
-            const dbRef = firebase.database().ref();
-            const menuRef = dbRef.child(this.state.menuSelected);
-            menuRef.on('value', snap => {
-                this.setState({
-                    menuButtons: snap.val()
-                })
-            });
+
         }
         else {
             this.setState({
                 menuSelected: 'dinnerMenu'
+            }, () => {
+                const dbRef = firebase.database().ref();
+                const menuRef = dbRef.child(this.state.menuSelected);
+                menuRef.on('value', snap => {
+                    this.setState({
+                        menuButtons: snap.val()
+                    })
+                });
             })
-            const dbRef = firebase.database().ref();
-            const menuRef = dbRef.child(this.state.menuSelected);
-            menuRef.on('value', snap => {
-                this.setState({
-                    menuButtons: snap.val()
-                })
-            });
+
         }
     }
 
-
     componentDidMount() {
-
         const dbRef = firebase.database().ref();
         const menuRef = dbRef.child('morningMenu');
         menuRef.on('value', snap => {
@@ -59,48 +57,69 @@ class Waitress extends Component {
         });
     }
 
-    submit(item, price) {
+    submitItem(item, price, img, id) {
         const newItem = {
             item: item,
-            price: price
+            price: price,
+            img: img,
+            id: id
         }
         this.setState({
             order: [...this.state.order, newItem]
         })
     }
 
+    deleteItem = value => {
+        let orderIndex = this.state.order.findIndex(item => {
+            return item.id === value
+        })
+        if (orderIndex > -1) {
+            this.setState({
+                order: [...this.state.order.slice(0, orderIndex), ...this.state.order.slice(orderIndex + 1, this.state.order.length)]
+            })
+        }
+    }
+
     render() {
-        console.log(this.state.order)
         const menuBtn = this.state.menuButtons.map(menuItem => {
             return (
-                <button
+                <button type="button" class="btn btn-lg btn-primary btn-item col-4"
                     key={menuItem.id}
-                    onClick={() => { this.submit(menuItem.item, menuItem.price); }}
+                    onClick={() => { this.submitItem(menuItem.item, menuItem.price, menuItem.img, menuItem.id); }}
                     type="submit">
-                    {menuItem.item} WA
-                    {/* <img src={menuItem.img}></img> */}
+                    {menuItem.item}
+                    <img className="img" alt={menuItem.item} src={menuItem.img} />
                 </button>
             )
         });
 
         return (
-            <div>
-                {/*  <ButtonFood
-                key= {menuItem.id}
-                action={() => {this.submit(menuItem.item, menuItem.price);}}>
-                
-                </ButtonFood> */}
-                <button onClick={() => this.chooseMenu(this.state.morning)}>Menu de Dia WAI</button>
-                <button onClick={() => this.chooseMenu(this.state.dinner)}>Menu de CenaWAI</button>
-                <div>{menuBtn}</div>
+            <div className="waitress row">
 
-                {/*    <MorningMenu
-                     menuSelected = {this.state.menuSelected}
-                     menuButtons= {this.state.menuButtons}
-                     order= {this.state.order}
-                     morning= {this.state.morning}
-                     dinner= {this.state.dinner}/> */}
-                <Ticket order={this.state.order} />
+               
+                <section className="morningMenu">
+                    <button type="button" class="btn btn-warning btn-lg btn-block choose-menu-btn"
+                        onClick={() => this.chooseMenu(this.state.morning)}>
+                        Menu Desayunos
+                    </button>
+                </section>
+                <section className="dinnerMenu">
+                    <button type="button" class="btn btn-warning btn-lg btn-block choose-menu-btn"
+                        onClick={() => this.chooseMenu(this.state.dinner)}>
+                        Menu Comidas
+                    </button>
+                </section>
+
+                <div className="menuBtns-and-ticket row">
+                    <section className="menu-buttons col-7 row alert alert-dismissible alert-secondary">
+                        {menuBtn}
+                    </section>
+                    <section className="ticket col-5 ">
+                        <Ticket 
+                            order={this.state.order}
+                            deleteItem={this.deleteItem} />
+                    </section>
+                </div>
             </div>
         )
     }
