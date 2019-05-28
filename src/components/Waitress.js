@@ -111,7 +111,7 @@ class Waitress extends Component {
                 </section>
 
                 <div className="menuBtns-and-ticket row">
-                    <section className="menu-buttons col-7 row alert alert-dismissible alert-secondary">
+                    <section className="menu-buttons col-5 row alert alert-dismissible alert-secondary">
                         {menuBtn}
                     </section>
                     <section className="ticket col-5 ">

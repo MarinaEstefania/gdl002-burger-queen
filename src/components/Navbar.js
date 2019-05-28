@@ -10,14 +10,19 @@ class Navigation extends Component{
                  <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                      
                    <ul className="navbar-nav mr-auto">
-                      <li className="nav-item"> 
-                       <Link className="navbar-brand"  to="tomar-orden">Tomar Orden </Link>
+                   <li className="nav-item"> 
+                       <Link className="navbar-brand"  to="inicio">  Inicio | </Link>
                        </li>
                       <li className="nav-item"> 
-                       <Link className="navbar-brand"  to="Cocina">Cocina</Link>
+                       <Link className="navbar-brand"  to="tomar-orden">Tomar orden | </Link>
+                       </li>
+                      <li className="nav-item"> 
+                       <Link className="navbar-brand"  to="Cocina">Cocina |</Link>
                        </li>
                     </ul>
                 </nav>
+                
+               
               </div>
         )
     }

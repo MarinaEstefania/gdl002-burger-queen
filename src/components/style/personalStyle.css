@@ -2,7 +2,16 @@
 .Navbar{
     margin-bottom: 2vw;
 }
+.inputName{
+    margin-top: 1vw;
+    margin-right: 
+}
 
+/* INICIO ///////////////////////////////////////////// */
+.inicio{
+    margin: 5vw;
+    margin-left: 25vw;
+}
  /* WAITRESS ///////////////////////////////////////////// */
 .waitress{
     margin-left: 3vw;
@@ -24,19 +33,20 @@
 
 .menuBtns-and-ticket{
     display: flex;
-    margin: 1vw;
+    
+    margin: inherit;;
 }
 
 .menu-buttons{
     display: flex;
     align-content: stretch;
- 
+    padding: 0;
     margin-right: .5rem;
 
 } 
 
 .btn-item{
-    margin: .5rem;
+ 
     
 } 
 .img{
