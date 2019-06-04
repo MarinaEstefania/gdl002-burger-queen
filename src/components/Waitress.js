@@ -80,6 +80,13 @@ class Waitress extends Component {
         }
     }
 
+    eraseOrder = () => {
+        // console.log('EnteringToEraseOrder')
+        this.setState({
+            order: []
+        })
+    }
+
     render() {
         const menuBtn = this.state.menuButtons.map(menuItem => {
             return (
@@ -96,7 +103,7 @@ class Waitress extends Component {
         return (
             <div className="waitress row">
 
-               
+
                 <section className="morningMenu">
                     <button type="button" class="btn btn-warning btn-lg btn-block choose-menu-btn"
                         onClick={() => this.chooseMenu(this.state.morning)}>
@@ -115,7 +122,8 @@ class Waitress extends Component {
                         {menuBtn}
                     </section>
                     <section className="ticket col-5 ">
-                        <Ticket 
+                        <Ticket
+                            eraseOrder={this.eraseOrder}
                             order={this.state.order}
                             deleteItem={this.deleteItem} />
                     </section>
