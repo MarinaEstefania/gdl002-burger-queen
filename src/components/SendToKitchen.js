@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from './Firebase/firebase';
+import moment from 'moment';
 
 class SendToKitchen extends Component {
     constructor(props) {
@@ -13,7 +14,8 @@ class SendToKitchen extends Component {
         orderRef.push([
             {
                 orden: this.props.SendToKitchen,
-              /*   date: new Date().getTime()  */
+                date:  moment().format('lll'),
+                 waitressName: this.props.waitressName
             }
         ]);
     }

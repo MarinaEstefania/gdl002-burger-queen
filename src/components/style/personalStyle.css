@@ -33,8 +33,8 @@
 
 .menuBtns-and-ticket{
     display: flex;
-    
-    margin: inherit;;
+    margin: inherit;  ;
+    margin-top: 2vw;
 }
 
 .menu-buttons{
@@ -46,7 +46,7 @@
 } 
 
 .btn-item{
- 
+    
     
 } 
 .img{

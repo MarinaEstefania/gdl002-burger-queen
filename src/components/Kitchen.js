@@ -42,6 +42,7 @@ class Kitchen extends Component {
     }
 
     render() {
+   
         if (Array.isArray(this.state.order)) {
 
             /*        this.state.order.map(item=>{
@@ -51,7 +52,7 @@ class Kitchen extends Component {
                 <section className="row "> {
                     this.state.order.map((orders, i) =>
                         <div className="card text-white bg-primary mb-3 kitchen-order" >
-                            <div className="card-header">  <h4 class="card-title">Orden no. {i+1}</h4></div>
+                            <div className="card-header">  <h5 class="card-title">Orden no. {i+1}</h5> <h6>{orders[0].date}</h6> mesero: <h6>{orders[0].waitressName}</h6></div>
                             <div class="card-body">
                             {orders[0].orden.map((items, i) =>
 

@@ -4,8 +4,24 @@ import Total from './Total'
 
 
 class Ticket extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            waitressName:''
+        }
+    }
+putWaitressName= (event)=>{
+    event.preventDefault()
 
+    //console.log(event.target.waitressNameInput)
+   let value = event.target.value
+     this.setState({
+        waitressName: value
+    })  
+}
     render() {
+        const waitressName = this.state.waitressName
+        console.log(waitressName)
         const newOrder = this.props.order
         const newTicket =
             newOrder.map(order =>
@@ -21,11 +37,20 @@ class Ticket extends Component {
                 </ul>)
         return (
             <div >
-                <a href="#" className="list-group-item list-group-item-action active">
-                    Mesero: Carlos </a>
+                <form>
+                    <p href="#" className="list-group-item list-group-item-action active">
+                        Mesero: 
+                        <input type='text' 
+                        placeholder='Nombre'
+                         waitressNameInput={waitressName}
+                         onChange={this.putWaitressName}/>
+                    </p> 
+                  
+                </form>
                 {newTicket}
                 <Total order={this.props.order} />
-                <SendToKitchen SendToKitchen={this.props.order} />
+                <SendToKitchen SendToKitchen={this.props.order}
+                waitressName={waitressName} />
             </div>
 
         )

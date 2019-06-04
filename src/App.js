@@ -13,7 +13,6 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <Router>
         <div>
@@ -22,12 +21,9 @@ class App extends Component {
           <Route path="/inicio" component={Name} />
           <Route path="/tomar-orden" component={Waitress} />
           <Route path="/cocina" component={Kitchen} />
-          {/* <Pruebasfirebase></Pruebasfirebase> */}
-           
+          {/* <Pruebasfirebase></Pruebasfirebase> */}  
         </div>
       </Router>
-    
-         /*  <img src=""/> */
     )
   }
 }
