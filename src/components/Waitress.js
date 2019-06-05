@@ -13,7 +13,7 @@ class Waitress extends Component {
             dinner: 'dinnerMenu',
             menuSelected: 'morningMenu'
         }
-        this.submitItem = this.submitItem.bind(this);
+        // this.submitItem = this.submitItem.bind(this);
     }
 
     chooseMenu = (menu) => {
@@ -57,16 +57,33 @@ class Waitress extends Component {
         });
     }
 
-    submitItem(item, price, img, id) {
+    submitItem = (item, price, img, id) => {
         const newItem = {
             item: item,
             price: price,
             img: img,
-            id: id
+            id: id,
+            amount: 0
         }
         this.setState({
             order: [...this.state.order, newItem]
         })
+
+        this.state.order.forEach((i) => {
+            if (newItem.id == i.id) {
+                newItem.amount = i.amount + 1
+            }
+        })
+
+        let orderIndex = this.state.order.findIndex(i => {
+            return i.id == newItem.id
+        })
+
+        if (orderIndex > -1) {
+            this.setState({
+                order: [...this.state.order.slice(0, orderIndex), ...this.state.order.slice(orderIndex + 1, this.state.order.length), newItem]
+            })
+        }
     }
 
     deleteItem = value => {

@@ -61,7 +61,7 @@ class Kitchen extends Component {
                             }
                             <button className="btn-terminado btn btn-secondary"
                                 onClick={() => this.delete(orders.key)}>
-                                ¡Terminado!
+                                ¡Orden Lista!
                         </button></div>
                         </div>)
                 } </section>
