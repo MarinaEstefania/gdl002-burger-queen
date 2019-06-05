@@ -7,7 +7,7 @@ total(totalLikeArray){
     let suma = 0
         //console.log(totalLikeArray)
      totalLikeArray.map(item=>{
-         suma = suma + item.price
+         suma = suma + (item.price*(item.amount + 1))
         return  suma
      })
     return suma
