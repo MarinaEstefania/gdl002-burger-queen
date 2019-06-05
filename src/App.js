@@ -18,8 +18,8 @@ class App extends Component {
         <div>
           <h1></h1>
           <Route path="/" component={Navigation} />
-          <Route path="/inicio" component={Name} />
-          <Route path="/tomar-orden" component={Waitress} />
+  {/*         <Route path="/inicio" component={Name} /> */}
+          <Route exact path="/tomar-orden" component={Waitress} />
           <Route path="/cocina" component={Kitchen} />
           {/* <Pruebasfirebase></Pruebasfirebase> */}  
         </div>

@@ -28,9 +28,9 @@ class Ticket extends Component {
 
                 <ul className="list-group">
                     <li className="list-group-item d-flex justify-content-between align-items-center">
-                       <span class="badge badge-secundary badge-pill"> {order.amount+1}</span>
+                       <span class="badge badge-primary badge-pill"> {order.amount+1}</span>
                         {order.item}
-                        <span class="badge badge-primary badge-pill"> ${order.price}.00</span>
+                        <span class="badge badge-secundary badge-pill"> ${order.price}.00</span>
                         <button type="button" class="btn btn-primary btn-sm btn-danger"
                             onClick={() => this.props.deleteItem(order.id)}>X</button>
                     </li>

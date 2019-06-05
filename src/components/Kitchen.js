@@ -52,11 +52,13 @@ class Kitchen extends Component {
                 <section className="row "> {
                     this.state.order.map((orders, i) =>
                         <div className="card text-white bg-primary mb-3 kitchen-order" >
-                            <div className="card-header">  <h5 class="card-title">Orden no. {i+1}</h5> <h6>{orders[0].date}</h6> mesero: <h6>{orders[0].waitressName}</h6></div>
+                            <div className="card-header">  <h5 class="card-title">Orden no. {i+1}</h5> <h6>{orders[0].date}</h6> Mesero: {orders[0].waitressName}</div>
                             <div class="card-body">
                             {orders[0].orden.map((items, i) =>
-
-                                <h5 className="card-text"> {items.item}
+                              
+                                <h5 className="card-text">
+                                      <span class="badge badge-primary badge-pill"> {items.amount+1}</span>
+                                       {items.item}
                                 </h5>)
                             }
                             <button className="btn-terminado btn btn-secondary"
