@@ -1,75 +1,135 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Burger Queen
 
-## Available Scripts
+## 1. Preámbulo
 
-In the project directory, you can run:
+[React](https://reactjs.org/), [Angular](https://angular.io/) y [Vue](https://vuejs.org/)
+son algunos de los _frameworks_ y _librerías_ de JavaScript más utilizados por
+lxs desarrolladorxs alrededor del mundo, y hay una razón para eso.
+En el contexto del navegador, [_mantener la interfaz sincronizada con el estado
+es difícil_](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445).
+Al elegir un _framework_ o _librería_ para nuestra interfaz, nos apoyamos en una
+serie de convenciones e implementaciones _probadas_ y _documentadas_ para
+resolver un problema común a toda interfaz web. Esto nos permite concentrarnos
+mejor (dedicar más tiempo) en las caractrísticas _específicas_ de
+nuestra aplicación.
 
-### `npm start`
+Cuando elegimos una de estas tecnologías no solo importamos un pedacito de
+código para reusarlo (lo cuál es un gran valor per se), si no que adoptamos una
+**arquitectura**, una serie de **principios de diseño**, un **paradigma**, unas
+**abstracciones**, un **vocabulario**, una **comunidad**, etc...
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Como desarrolladora Front-end, estos kits de desarrollo pueden resultarte
+de gran ayuda para implementar rápidamente características de los proyectos en
+los que trabajes.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## 2. Resumen del proyecto
 
-### `npm test`
+Esta vez tenemos un proyecto 100% por encargo. Si bien siempre puedes (y debes)
+hacer sugerencias de mejoras y/o cambios, muchas veces trabajarás en proyectos
+en los que primero hay que asegurarse de cumplir con lo requerido.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Un pequeño restaurante de hamburguesas, que está creciendo, necesita una
+interfaz en la que puedan tomar pedidos usando una _tablet_, y enviarlos
+a la cocina para que se preparen ordenada y eficientemente.
 
-### `npm run build`
+![burger-queen](https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Esta es la información que tenemos del cliente:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+> Somos **Burger Queen**, una cadena de comida 24hrs.
+>
+> Nuestra propuesta de servicio 24hrs ha sido muy bien recibido y, para
+> seguir creciendo, necesitamos un sistema que nos ayude a tomar los pedidos de
+> nuestros clientes.
+>
+> Tenemos 2 menús: uno muy sencillo para el desayuno:
+>
+> | Ítem                      |Precio $|
+> |---------------------------|------|
+> | Café americano            |    5 |
+> | Café con leche            |    7 |
+> | Sandwich de jamón y queso |   10 |
+> | Jugo de frutas natural              |    7 |
+>
+> Y otro menú para el resto del día:
+>
+> | Ítem                      |Precio|
+> |---------------------------|------|
+> |**Hamburguesas**           |   **$**   |
+> |Hamburguesa simple         |    10|
+> |Hamburguesa doble          |    15|
+> |**Acompañamientos**        |   **$**   |
+> |Papas fritas               |     5|
+> |Aros de cebolla            |     5|
+> |**Para tomar**             |   **$**   |
+> |Agua 500ml                 |     5|
+> |Agua 750ml                 |     7|
+> |Bebida/gaseosa 500ml       |     7|
+> |Bebida/gaseosa 750ml       |     10|
+>
+> **Importante:** Los clientes pueden escoger entre hamburguesas de res,
+> de pollo, o vegetariana. Además, por $1 adicional, pueden agregarle queso
+> o huevo.
+>
+> Nuestros clientes son bastante indecisos, por lo que es muy común que cambien
+>el su pedido varias veces antes de finalizarlo.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+La interfaz debe mostrar los dos menús (desayuno y resto del día), cada uno
+con todos sus _productos_. El usuario debe poder ir eligiendo qué _productos_
+agregar y la interfaz debe ir mostrando el _resumen del pedido_ con el
+costo total.
 
-### `npm run eject`
+![out](https://user-images.githubusercontent.com/110297/45984241-b8b51c00-c025-11e8-8fa4-a390016bee9d.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 3. Objetivos de aprendizaje
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. El objetivo principal de este proyecto es aprender a construir una _interfaz web_ usando
+   la _librería_ React. Este (y otros) frameworks de
+   front-end atacan el mismo problema: **cómo mantener la interfaz y el estado
+   sincronizados**. Así que esta experiencia espera familiarizarte con el
+   concepto de _estado de pantalla_, y cómo cada cambio sobre el estado se va a
+   ir reflejando en la interfaz (por ejemplo, cada vez que agregamos un
+   _producto_ a un _pedido_, la interfaz debe actualizar la lista del pedido y
+   el total).
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. Finalmente, la interfaz debe estar diseñada específicamente para correr en
+   **tablets**.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 4. Consideraciones generales
 
-## Learn More
+Este proyecto se debe "resolver" de forma individual.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Trabaja en una historia hasta terminarla antes de pasar a la siguiente. Trabaja
+hasta la historia que puedas en el tiempo especificado.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+La lógica del proyecto debe estar implementada completamente en [React](https://reactjs.org/).
 
-### Code Splitting
+La aplicación debe ser un _Single Page App_. Los pedidos los tomaremos desde una
+_tablet_, pero **no queremos una app nativa**, sino una web app que sea
+**responsive**.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Necesitamos pensar bien en el aspecto UX de de quienes van a tomar los pedidos,
+ el tamaño y aspecto de los botones, la visibilidad del estado actual del
+ pedido, etc.
 
-### Analyzing the Bundle Size
+La aplicación debe hacer uso de `npm-scripts` y contar con scripts `start`,
+`test`, `build` y `deploy`, que se encarguen de arrancar, correr las pruebas,
+empaquetar y desplegar la aplicación respectivamente.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_,
+_lines_ y _branches_.
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## 5. Pistas, tips y lecturas complementarias
+#### Frameworks / librerías
 
-### Advanced Configuration
+* [React](https://reactjs.org/)
+* [Vue](https://vuejs.org/)
+* [Angular](https://angular.io/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+#### Herramientas
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-documentacion:
-https://www.codecademy.com/courses/react-101/lessons/react-jsx-advanced/exercises/jsx-variables
-
-https://medium.com/the-andela-way/how-to-deploy-your-react-application-to-github-pages-in-less-than-5-minutes-8c5f665a2d2a
-
-https://medium.freecodecamp.org/all-the-fundamental-react-js-concepts-jammed-into-this-single-medium-article-c83f9b53eac2
+* [create-react-app](https://facebook.github.io/create-react-app/)
+* [npm-scripts](https://docs.npmjs.com/misc/scripts)
+* [Babel](https://babeljs.io/)
+* [webpack](https://webpack.js.org/)
