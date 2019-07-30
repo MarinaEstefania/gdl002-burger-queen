@@ -107,7 +107,7 @@ class Waitress extends Component {
     render() {
         const menuBtn = this.state.menuButtons.map(menuItem => {
             return (
-                <button type="button" class="btn btn-lg btn-primary btn-item col-4"
+                <button type="button" class="btn btn-lg btn-primary btn-item"
                     key={menuItem.id}
                     onClick={() => { this.submitItem(menuItem.item, menuItem.price, menuItem.img, menuItem.id); }}
                     type="submit">
@@ -118,34 +118,35 @@ class Waitress extends Component {
         });
 
         return (
-            <div className="waitress row">
+            <section className="waitress row">
 
-
-                <section className="morningMenu">
-                    <button type="button" class="btn btn-warning btn-lg btn-block choose-menu-btn"
+            <div className="menues-section">
+            
+                    <button type="button" class="btn btn-warning btn-lg choose-menu-btn"
                         onClick={() => this.chooseMenu(this.state.morning)}>
                         Menu Desayunos
                     </button>
-                </section>
-                <section className="dinnerMenu">
-                    <button type="button" class="btn btn-warning btn-lg btn-block choose-menu-btn"
+           
+                    <button type="button" class="btn btn-warning btn-lg choose-menu-btn"
                         onClick={() => this.chooseMenu(this.state.dinner)}>
                         Menu Comidas
                     </button>
-                </section>
+              
+            </div>
+                
 
-                <div className="menuBtns-and-ticket row">
-                    <section className="menu-buttons col-5 row alert alert-dismissible alert-secondary">
+                <section className="menuBtns-and-ticket row">
+                    <section className="menu-buttons col-sm-12 col-md-7 alert alert-dismissible alert-secondary">
                         {menuBtn}
                     </section>
-                    <section className="ticket col-5 ">
+                    <section className="ticket col-sm-12 col-md-5">
                         <Ticket
                             eraseOrder={this.eraseOrder}
                             order={this.state.order}
                             deleteItem={this.deleteItem} />
                     </section>
-                </div>
-            </div>
+                </section>
+            </section>
         )
     }
 }

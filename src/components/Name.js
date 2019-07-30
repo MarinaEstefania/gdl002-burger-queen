@@ -30,7 +30,6 @@ class Name extends Component {
                 <form onSubmit={this.submitName}>
                     <input type="text" className=" inputName" placeholder="Nombre" name='fullName' onChange={this.inputCange}></input>
                     <button type="button" className="btn btn-primary">Enviar</button>
-                    {/*  <img src={this.img}/> */}
                 </form>
             </div>
         )

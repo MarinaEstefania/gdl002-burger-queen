@@ -6,10 +6,10 @@ import './style/personalStyle.css';
 class Navigation extends Component{
     render(){
         return(
-            <div className="Navbar" >
-                 <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div>
+                 <nav className="navbars navbar-expand-lg navbar-dark bg-primary">
                      
-                   <ul className="navbar-nav mr-auto">
+                   <ul className="navbar-nav">
                   {/*  <li className="nav-item"> 
                        <Link className="navbar-brand"  to="inicio">  Inicio | </Link>
                        </li> */}

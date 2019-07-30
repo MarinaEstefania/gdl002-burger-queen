@@ -25,8 +25,7 @@ class SendToKitchen extends Component {
         return (
             <div>
                 <button type="button" className="btn btn-warning btn-send-kitchen"
-                    onClick={this.sendOrder}/* {this.props.eraseOrder} */
-                 /* {this.sendOrder} */>
+                    onClick={this.sendOrder}>
                     Enviar a Cocina
                 </button>
             </div>

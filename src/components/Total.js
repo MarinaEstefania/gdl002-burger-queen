@@ -15,7 +15,7 @@ total(totalLikeArray){
     render() {
         return (
             <div>
-                <h3 >Total: {this.total(this.props.order)} </h3>
+                <h3  className="total">Total: {this.total(this.props.order)} </h3>
             </div>
 
         )

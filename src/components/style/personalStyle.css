@@ -1,6 +1,11 @@
  /* Navbar ///////////////////////////////////////////////// */
-.Navbar{
-    margin-bottom: 2vw;
+.navbar{
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.5rem 1rem;
 }
 .inputName{
     margin-top: 1vw;
@@ -14,20 +19,24 @@
 }
  /* WAITRESS ///////////////////////////////////////////// */
 .waitress{
-    margin-left: 3vw;
-    margin-right: 3vw;
+    max-width: 100%;
     text-align: center;
-/*     
-    background: black; */
+    padding: 1rem;
+    justify-content: center;
+    margin:0;
 }
 
+.menues-section{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+}
 
 .choose-menu-btn{
-    
-    margin-right: 12rem
-}
-.morningMenu{
-    margin-right: 2vw;
+    width: 40vw;
+    max-width: 50%;
+    margin: 1rem;
 }
 
 
@@ -35,31 +44,60 @@
     display: flex;
     margin: inherit;  ;
     margin-top: 2vw;
+    max-width: 100%;
 }
 
 .menu-buttons{
     display: flex;
-    align-content: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 0;
-    margin-right: .5rem;
-
+    background-color: white;
+} 
+.menu-buttons button{
+    width: 46%;
+    height: inherit;
+    margin: 0.2rem;
 } 
 
-.btn-item{
-    
-    
-} 
 .img{
     width: 100% ;
     
 }
 
+/* TICKET /////////////////////////////////////////////////// */
+.order-amount{
+    width: inherit;
+}
+
+.td-item{
+    width: 53%;
+    text-align: left;
+}
+
+.order-price{
+    width: inherit;
+}
+
+.order-delete{
+    width: inherit;
+}
+
+
+.name{
+    margin-left: 1rem;
+}
+
+.total{
+    text-align: right;
+    padding: 1rem;
+}
  /* KITCHEN ///////////////////////////////////////////////// */
-.kitchen-order{
+/* .kitchen-order{
     margin: 0.5rem;
     width: 40vw
 }
-
+ */
 .btn-terminado{
     
     margin-top: 1vw;
@@ -70,4 +108,38 @@
 .btn-send-kitchen{
     position: absolute;
     text-align: right
+}
+
+@media (min-width: 376px){
+    .menu-buttons button{
+        width: 30%;
+        height: inherit;
+    } 
+    .menu-buttons{
+        justify-content: flex-end;
+    } 
+
+    .choose-menu-btn{
+        width: 42vw;
+        margin: 1rem;
+    }
+}
+
+@media (min-width: 700px){
+    .choose-menu-btn{
+        width: 33vw;
+    }
+}
+
+@media (min-width: 1280px){
+    .menu-buttons button{
+        width: 22%;
+        height: inherit;
+    } 
+    .menu-buttons{
+        justify-content: flex-end;
+    } 
+    .choose-menu-btn{
+        width: 25vw;
+    }
 }
