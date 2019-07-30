@@ -93,15 +93,20 @@
     padding: 1rem;
 }
  /* KITCHEN ///////////////////////////////////////////////// */
-/* .kitchen-order{
+ .kitchen-section{
+     margin: 1rem;
+     justify-content: center;
+ }
+ .kitchen-order{
     margin: 0.5rem;
     width: 40vw
 }
- */
+ 
 .btn-terminado{
-    
-    margin-top: 1vw;
+    position: relative;
     bottom: 0;
+    margin: 1rem;
+    width: fit-content;
 }
 
 /* SEND TO KITCHEN /////////////////////////////*/

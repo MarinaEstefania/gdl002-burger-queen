@@ -49,7 +49,7 @@ class Kitchen extends Component {
             
                     console.log(item.key)}) */
             return (
-                <section className="row "> {
+                <section className="row kitchen-section"> {
                     this.state.order.map((orders, i) =>
                         <div className="card text-white bg-primary mb-3 kitchen-order" >
                             <div className="card-header">  <h5 class="card-title">Orden no. {i+1}</h5> <h6>{orders[0].date}</h6> Mesero: {orders[0].waitressName}</div>
@@ -61,10 +61,11 @@ class Kitchen extends Component {
                                        {items.item}
                                 </h5>)
                             }
-                            <button className="btn-terminado btn btn-secondary"
+                            </div>
+                            <button type="button" className="btn-terminado btn btn-secondary"
                                 onClick={() => this.delete(orders.key)}>
                                 Eliminar Pedido
-                        </button></div>
+                        </button>
                         </div>)
                 } </section>
             )
