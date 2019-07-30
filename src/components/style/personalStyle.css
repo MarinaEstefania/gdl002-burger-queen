@@ -1,150 +1,147 @@
- /* Navbar ///////////////////////////////////////////////// */
-.navbar{
-    position: relative;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0.5rem 1rem;
+/* Navbar ///////////////////////////////////////////////// */
+.navbar {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5rem 1rem;
 }
-.inputName{
-    margin-top: 1vw;
-    margin-right: 
+.inputName {
+  margin-top: 1vw;
+  margin-right: ;
 }
 
 /* INICIO ///////////////////////////////////////////// */
-.inicio{
-    margin: 5vw;
-    margin-left: 25vw;
+.inicio {
+  margin: 5vw;
+  margin-left: 25vw;
 }
- /* WAITRESS ///////////////////////////////////////////// */
-.waitress{
-    max-width: 100%;
-    text-align: center;
-    padding: 1rem;
-    justify-content: center;
-    margin:0;
-}
-
-.menues-section{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100vw;
+/* WAITRESS ///////////////////////////////////////////// */
+.waitress {
+  max-width: 100%;
+  text-align: center;
+  padding: 1rem;
+  justify-content: center;
+  margin: 0;
 }
 
-.choose-menu-btn{
-    width: 40vw;
-    max-width: 50%;
-    margin: 1rem;
+.menues-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
 }
 
-
-.menuBtns-and-ticket{
-    display: flex;
-    margin: inherit;  ;
-    margin-top: 2vw;
-    max-width: 100%;
+.choose-menu-btn {
+  width: 40vw;
+  max-width: 50%;
+  margin: 1rem;
 }
 
-.menu-buttons{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0;
-    background-color: white;
-} 
-.menu-buttons button{
-    width: 46%;
-    height: inherit;
-    margin: 0.2rem;
-} 
+.menuBtns-and-ticket {
+  display: flex;
+  margin: inherit;
+  margin-top: 2vw;
+  max-width: 100%;
+}
 
-.img{
-    width: 100% ;
-    
+.menu-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  background-color: white;
+}
+.menu-buttons button {
+  width: 46%;
+  height: inherit;
+  margin: 0.2rem;
+}
+
+.img {
+  width: 100%;
 }
 
 /* TICKET /////////////////////////////////////////////////// */
-.order-amount{
-    width: inherit;
+.order-amount {
+  width: inherit;
 }
 
-.td-item{
-    width: 53%;
-    text-align: left;
+.td-item {
+  width: 53%;
+  text-align: left;
 }
 
-.order-price{
-    width: inherit;
+.order-price {
+  width: inherit;
 }
 
-.order-delete{
-    width: inherit;
+.order-delete {
+  width: inherit;
 }
 
-
-.name{
-    margin-left: 1rem;
+.name {
+  margin-left: 1rem;
 }
 
-.total{
-    text-align: right;
-    padding: 1rem;
+.total {
+  text-align: right;
+  padding: 1rem;
 }
- /* KITCHEN ///////////////////////////////////////////////// */
- .kitchen-section{
-     margin: 1rem;
-     justify-content: center;
- }
- .kitchen-order{
-    margin: 0.5rem;
-    width: 40vw
+/* KITCHEN ///////////////////////////////////////////////// */
+.kitchen-section {
+  margin: 1rem;
+  justify-content: center;
 }
- 
-.btn-terminado{
-    position: relative;
-    bottom: 0;
-    margin: 1rem;
-    width: fit-content;
+.kitchen-order {
+  margin: 0.5rem;
+  width: 40vw;
+}
+
+.btn-terminado {
+  position: relative;
+  bottom: 0;
+  margin: 1rem;
+  width: fit-content;
 }
 
 /* SEND TO KITCHEN /////////////////////////////*/
-.btn-send-kitchen{
-    position: absolute;
-    text-align: right
+.btn-send-kitchen {
+  position: absolute;
+  text-align: right;
 }
 
-@media (min-width: 376px){
-    .menu-buttons button{
-        width: 30%;
-        height: inherit;
-    } 
-    .menu-buttons{
-        justify-content: flex-end;
-    } 
+@media (min-width: 376px) {
+  .menu-buttons button {
+    width: 30%;
+    height: inherit;
+  }
+  .menu-buttons {
+    justify-content: flex-end;
+  }
 
-    .choose-menu-btn{
-        width: 42vw;
-        margin: 1rem;
-    }
+  .choose-menu-btn {
+    width: 42vw;
+    margin: 1rem;
+  }
 }
 
-@media (min-width: 700px){
-    .choose-menu-btn{
-        width: 33vw;
-    }
+@media (min-width: 700px) {
+  .choose-menu-btn {
+    width: 33vw;
+  }
 }
 
-@media (min-width: 1280px){
-    .menu-buttons button{
-        width: 22%;
-        height: inherit;
-    } 
-    .menu-buttons{
-        justify-content: flex-end;
-    } 
-    .choose-menu-btn{
-        width: 25vw;
-    }
+@media (min-width: 1280px) {
+  .menu-buttons button {
+    width: 22%;
+    height: inherit;
+  }
+  .menu-buttons {
+    justify-content: flex-end;
+  }
+  .choose-menu-btn {
+    width: 25vw;
+  }
 }
